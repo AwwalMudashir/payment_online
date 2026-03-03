@@ -86,9 +86,10 @@ const ReceiptDetailsModal: React.FC<ReceiptDetailsModalProps> = ({ isOpen, onClo
   return (
     <Modal
       isOpen={isOpen}
-      title="Please provide the details below for your receipt"
+      title="Receipt Information"
       onClose={onClose}
       size="xl"
+      className="text-gray-800"
     >
       <form onSubmit={handleSubmit} className="space-y-8 text-sm text-blue-900">
         <section className="space-y-4">

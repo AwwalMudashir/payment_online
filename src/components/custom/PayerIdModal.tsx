@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import Modal from "./Modal";
+import LegacyModal from "./LegacyModal";
 import Button from "./Button";
 
 interface PayerIdModalProps {
@@ -27,7 +27,7 @@ const PayerIdModal: React.FC<PayerIdModalProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
+    <LegacyModal isOpen={isOpen} onClose={onClose} title={title}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-3">
           <input
@@ -46,7 +46,7 @@ const PayerIdModal: React.FC<PayerIdModalProps> = ({
           </Button>
         </div>
       </form>
-    </Modal>
+    </LegacyModal>
   );
 };
 

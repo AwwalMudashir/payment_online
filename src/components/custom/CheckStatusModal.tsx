@@ -31,17 +31,17 @@ const CheckStatusModal: React.FC<CheckStatusModalProps> = ({ isOpen, onClose }) 
         </div>
       }
     >
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <input
           type="text"
           value={reference}
           onChange={(event) => setReference(event.target.value)}
-          placeholder="Enter transaction reference"
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          placeholder="Transaction reference"
+          className="w-full rounded-md border border-gray-300 bg-gray-50 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           required
         />
         <div className="flex justify-end">
-          <Button type="submit" variant="secondary">
+          <Button type="submit" variant="secondary" className="px-6 py-2">
             Query
           </Button>
         </div>

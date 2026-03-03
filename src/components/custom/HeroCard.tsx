@@ -1,17 +1,14 @@
 import React from "react";
 import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
 
-interface HeroCardProps {
+export interface HeroCardProps {
   title: string;
   description: string;
   linkText?: string;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconColorClass?: string;
   iconBgClass?: string;
   borderColorClass?: string;
-  iconSizeClass?: string;
-  hoverClass?: string;
-  hoverIconBgClass?: string;
-  hoverLinkTextClass?: string;
   onLinkClick?: () => void;
   linkHref?: string;
 }
@@ -20,45 +17,62 @@ const HeroCard: React.FC<HeroCardProps> = ({
   title,
   description,
   linkText = "Click Here",
-  iconColorClass = "text-gray-600",
-  iconBgClass = "bg-gray-100",
-  borderColorClass = "border-b-gray-400",
-  iconSizeClass = "h-10 w-10",
-  hoverClass = "hover:bg-gray-400",
-  hoverIconBgClass = "group-hover:bg-white",
-  hoverLinkTextClass = "group-hover:text-white",
+  icon: Icon = ChatBubbleBottomCenterIcon,
+  iconColorClass = "text-indigo-600",
+  iconBgClass = "bg-indigo-50",
+  borderColorClass = "border-blue-500",
   onLinkClick,
   linkHref = "#",
 }) => {
   return (
-    <div
-      className={`group bg-white p-6 rounded-xl border-b-3 ${borderColorClass} flex flex-col items-center text-center space-y-1 ${hoverClass} hover:text-white`}
-    >
+    <div className={`group relative bg-white rounded-2xl p-8 border ${borderColorClass} shadow-sm hover:shadow-xl transition-all duration-[0.85s] hover:-translate-y-2 flex flex-col h-full overflow-hidden`}>
+      
+      {/* Accent Border */}
+      {/* <div className={`absolute bottom-0 left-0 w-full h-1  ransition-all duration-300 group-hover:h-2`} /> */}
+
+      {/* Icon */}
       <div
-        className={`${iconBgClass} ${hoverIconBgClass} p-3 rounded-lg flex items-center justify-center w-fit hover:bg-white`}
+        className={`w-14 h-14 flex items-center justify-center rounded-xl ${iconBgClass} transition-transform duration-500 ease-in-out group-hover:scale-110`}
       >
-        <ChatBubbleBottomCenterIcon
-          className={`${iconSizeClass} ${iconColorClass}`}
-        />
+        <Icon className={`h-7 w-7 ${iconColorClass}`} />
       </div>
-      <h1 className="text-xl font-semibold mt-4">{title}</h1>
-      <p>{description}</p>
-      {onLinkClick ? (
-        <button
-          type="button"
-          onClick={onLinkClick}
-          className={`${iconColorClass} ${hoverLinkTextClass} font-medium cursor-pointer`}
-        >
-          {linkText} ➔
-        </button>
-      ) : (
-        <a
-          href={linkHref}
-          className={`${iconColorClass} ${hoverLinkTextClass} cursor-pointer `}
-        >
-          {linkText} ➔
-        </a>
-      )}
+
+      {/* Content */}
+      <div className="mt-6 flex flex-col flex-1">
+        <h3 className="text-xl font-semibold text-gray-800 leading-tight">
+          {title}
+        </h3>
+
+        <p className="mt-3 text-gray-600 text-sm leading-relaxed flex-1">
+          {description}
+        </p>
+
+        {/* Link (Always stays at bottom) */}
+        <div className="mt-6">
+          {onLinkClick ? (
+            <button
+              type="button"
+              onClick={onLinkClick}
+              className={`inline-flex items-center cursor-pointer font-medium ${iconColorClass} transition-all duration-300 group-hover:translate-x-1`}
+            >
+              {linkText}
+              {/* <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span> */}
+            </button>
+          ) : (
+            <a
+              href={linkHref}
+              className={`inline-flex cursor-pointer items-center font-medium ${iconColorClass} transition-all duration-300 group-hover:translate-x-1`}
+            >
+              {linkText}
+              {/* <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span> */}
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import Modal from "./Modal";
+import LegacyModal from "./LegacyModal";
 import Button from "./Button";
 
 interface AssessmentModalProps {
@@ -17,7 +17,7 @@ const AssessmentModal: React.FC<AssessmentModalProps> = ({ isOpen, onClose }) =>
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Input Assessment or Payment Code to Continue" size="sm">
+    <LegacyModal isOpen={isOpen} onClose={onClose} title="Input Assessment or Payment Code">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-3">
           <input
@@ -36,7 +36,7 @@ const AssessmentModal: React.FC<AssessmentModalProps> = ({ isOpen, onClose }) =>
           </Button>
         </div>
       </form>
-    </Modal>
+    </LegacyModal>
   );
 };
 

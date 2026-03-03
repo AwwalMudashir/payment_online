@@ -7,14 +7,29 @@ interface ContactCardProps {
   info: string;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({ icon: Icon, title, info }) => {
+const ContactCard: React.FC<ContactCardProps> = ({
+  icon: Icon,
+  title,
+  info,
+}) => {
   return (
-    <div className="rounded-xl bg-gray-100 p-3 space-y-3">
-      <Icon className="h-5 w-5 text-blue-400" />
+    <div className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-start gap-4 h-full">
+      
+      {/* Icon Container */}
+      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-50 transition-all duration-300 group-hover:scale-110">
+        <Icon className="h-6 w-6 text-indigo-600" />
+      </div>
 
-      <h2 className="text-xl text-">{title}</h2>
+      {/* Content */}
+      <div className="flex flex-col">
+        <h3 className="text-lg font-semibold text-gray-800 leading-tight">
+          {title}
+        </h3>
 
-      <p className="text-sm">{info}</p>
+        <p className="mt-1 text-sm text-gray-600 break-words leading-relaxed">
+          {info}
+        </p>
+      </div>
     </div>
   );
 };

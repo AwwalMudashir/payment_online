@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "./Modal";
+import LegacyModal from "./LegacyModal";
 import Button from "./Button";
 
 interface InstructionsModalProps {
@@ -16,37 +16,33 @@ const InstructionsModal: React.FC<InstructionsModalProps> = ({
   onContinueWithoutStin,
 }) => {
   return (
-    <Modal isOpen={isOpen} title="Please read the instructions Carefully." onClose={onClose} size="md">
-      <div className="space-y-6 text-sm text-blue-900">
-        <section className="space-y-3">
-          <p className="font-semibold">1. If you have an S-TIN:</p>
-          <p className="text-gray-600">
-            Ensure the number
-            is the same as the one on your tax documents.
-          </p>
+    <LegacyModal isOpen={isOpen} title="Please read the instructions Carefully." onClose={onClose}>
+      <div className="space-y-6 text-sm text-gray-800">
+        <section className="space-y-2">
+          <h3 className="font-semibold text-lg">Have an S-TIN?</h3>
+          <p className="text-gray-600">Make sure it matches your tax documents.</p>
           <Button
             variant="default"
             onClick={onContinueWithStin}
+            className="w-full"
           >
             Continue with S-TIN
           </Button>
         </section>
 
-        <section className="space-y-3">
-          <p className="font-semibold">2. If you do not have an S-TIN:</p>
-          <p className="text-gray-600">
-            Please make sure
-            the information is accurate so your receipt can be issued immediately.
-          </p>
+        <section className="space-y-2">
+          <h3 className="font-semibold text-lg">No S-TIN?</h3>
+          <p className="text-gray-600">Enter accurate details to get an immediate receipt.</p>
           <Button
             variant="secondary"
             onClick={onContinueWithoutStin}
+            className="w-full"
           >
             Continue without an S-TIN
           </Button>
         </section>
       </div>
-    </Modal>
+    </LegacyModal>
   );
 };
 
