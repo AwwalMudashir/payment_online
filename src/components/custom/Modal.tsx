@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FadeIn } from "./Animation";
 
 type ModalSize = "sm" | "md" | "lg" | "xl" | "full";
 
@@ -67,20 +68,22 @@ const Modal: React.FC<ModalProps> = ({
             exit={{ y: 30, opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.25 }}
           >
-            <div className="flex sticky justify-between items-center border-b border-b-gray-300 p-4">
-              <h2 className="text-lg font-semibold text-gray-800 mx-auto">
-                {title}
-              </h2>
-              <span
-                className="material-icons text-secondary cursor-pointer"
-                onClick={onClose}
-              >
-                clear
-              </span>
-            </div>
-            <div className="p-5 text-gray-700 w-full overflow-auto max-h-[80vh]">
-              {children}
-            </div>
+            <FadeIn>
+              <div className="flex sticky justify-between items-center border-b border-b-gray-300 p-4">
+                <h2 className="text-lg font-semibold text-gray-800 mx-auto">
+                  {title}
+                </h2>
+                <span
+                  className="material-icons text-secondary cursor-pointer"
+                  onClick={onClose}
+                >
+                  clear
+                </span>
+              </div>
+              <div className="p-5 text-gray-700 w-full overflow-auto max-h-[80vh]">
+                {children}
+              </div>
+            </FadeIn>
           </motion.div>
         </motion.div>
       )}

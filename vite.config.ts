@@ -7,10 +7,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    https: {
-      key: fs.readFileSync('./localhost-key.pem'),
-      cert: fs.readFileSync('./localhost.pem'),
-    },
+    // disable https for local development to avoid browser certificate warnings
+    // `false as any` silences TS since ServerOptions is expected when key exists
+    https: false as any,
     port: 5173,
   },  
   resolve: {
