@@ -65,7 +65,7 @@ const CookieConsent: React.FC = () => {
     <>
       <div className="fixed inset-0 bg-black/60 z-60"></div>
 
-      <div className="fixed top-[45%] left-0 right-0 z-70 bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-70 bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-lg">
         <span className="text-sm">{cookieText}</span>
         <Button onClick={handleAccept} size="lg" className="ml-4">
           Accept

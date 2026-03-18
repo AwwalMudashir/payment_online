@@ -9,12 +9,14 @@ import Footer from "../custom/Footer";
 
 const LandingLayout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* migrated navbar */}
       <Navbar />
 
       <main>
-        <Outlet />
+        <div className="flex-1">
+          <Outlet />
+        </div>
         {/* Cookie Consent */}
         <CookieConsent />
       </main>

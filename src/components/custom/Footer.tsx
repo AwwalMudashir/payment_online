@@ -9,22 +9,25 @@ const partnerLogos: { src: string; alt: string }[] = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-green-700/95 text-gray-300 pt-16 pb-8 px-6 sm:px-10 lg:px-20">
+    <footer className="bg-green-700/95 text-gray-300 pt-8 pb-6 px-6 sm:px-8 lg:px-16">
 
       {/* Top Section */}
       <div className="max-w-6xl mx-auto">
 
-        <div className="text-center mb-12">
-          <h3 className="text-xl font-semibold text-white tracking-wide">
+        <div className="text-center mb-8">
+          {/* <h3 className="text-sm font-semibold text-white tracking-wide">
             Supported Payment Partners
-          </h3>
-          <p className="mt-2 text-sm text-gray-200">
+          </h3> */}
+          {/* <p className="mt-1 text-xs text-gray-200">
             Secure transactions powered by trusted financial providers.
           </p>
+          <div className="mt-3 text-xs text-gray-200">
+            Contact: 090-456-606-63 • customercare@icmaservices.com
+          </div> */}
         </div>
 
         {/* Logos */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
           {partnerLogos.map((logo) => (
             <div
               key={logo.src}
@@ -34,7 +37,7 @@ const Footer: React.FC = () => {
                 src={logo.src}
                 alt={logo.alt}
                 title={logo.alt}
-                className="h-10 w-auto object-contain  transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105"
+                className="h-8 w-auto object-contain transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
@@ -42,7 +45,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Divider */}
-        <div className="mt-16 border-t border-gray-700 pt-8 text-center text-sm text-gray-200">
+        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-xs text-gray-200">
           &copy; {new Date().getFullYear()}{" "}
           <span className="text-white font-medium">
             Delta State Internal Revenue Service

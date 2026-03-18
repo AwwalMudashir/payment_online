@@ -20,17 +20,15 @@ const CheckStatusModal: React.FC<CheckStatusModalProps> = ({ isOpen, onClose }) 
       isOpen={isOpen}
       onClose={onClose}
       size="sm"
-      titleArea={
-        <div>
-          <p className="text-lg font-semibold text-green-800">
-            Enter Transaction Ref Number
-          </p>
-          <p className="text-xs font-medium text-red-600 mt-1">
-            Check your email for your transaction reference number
-          </p>
-        </div>
-      }
     >
+      <div>
+        <p className="text-lg font-semibold text-green-800">
+          Enter Transaction Ref Number
+        </p>
+        <p className="text-xs font-medium text-red-600 mt-1">
+          Check your email for your transaction reference number
+        </p>
+      </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <input
           type="text"

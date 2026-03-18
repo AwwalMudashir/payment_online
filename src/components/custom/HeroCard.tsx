@@ -25,30 +25,30 @@ const HeroCard: React.FC<HeroCardProps> = ({
   linkHref = "#",
 }) => {
   return (
-    <div className={`group relative bg-white rounded-2xl p-8 border ${borderColorClass} shadow-sm hover:shadow-xl transition-all duration-[0.85s] hover:-translate-y-2 flex flex-col h-full overflow-hidden`}>
+    <div className={`group relative bg-white rounded-2xl p-6 border ${borderColorClass} shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-full overflow-hidden`}>
       
       {/* Accent Border */}
       {/* <div className={`absolute bottom-0 left-0 w-full h-1  ransition-all duration-300 group-hover:h-2`} /> */}
 
       {/* Icon */}
       <div
-        className={`w-14 h-14 flex items-center justify-center rounded-xl ${iconBgClass} transition-transform duration-500 ease-in-out group-hover:scale-110`}
+        className={`w-12 h-12 flex items-center justify-center rounded-lg ${iconBgClass} transition-transform duration-300 ease-in-out group-hover:scale-105`}
       >
-        <Icon className={`h-7 w-7 ${iconColorClass}`} />
+        <Icon className={`h-6 w-6 ${iconColorClass}`} />
       </div>
 
       {/* Content */}
       <div className="mt-6 flex flex-col flex-1">
-        <h3 className="text-xl font-semibold text-gray-800 leading-tight">
+        <h3 className="text-lg font-semibold text-gray-800 leading-tight">
           {title}
         </h3>
 
-        <p className="mt-3 text-gray-600 text-sm leading-relaxed flex-1">
+        <p className="mt-2 text-gray-600 text-sm leading-relaxed flex-1">
           {description}
         </p>
 
         {/* Link (Always stays at bottom) */}
-        <div className="mt-6">
+        <div className="mt-4">
           {onLinkClick ? (
             <button
               type="button"
