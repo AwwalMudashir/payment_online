@@ -34,13 +34,13 @@ const HeroCard: React.FC<HeroCardProps> = ({
 
       {/* Icon */}
       <div
-        className={`w-12 h-12 flex items-center justify-center rounded-lg ${iconBgClass} transition-transform duration-300 ease-in-out group-hover:scale-105`}
+        className={`w-12 h-12 flex items-center justify-center rounded-lg mx-auto ${iconBgClass} transition-transform duration-300 ease-in-out group-hover:scale-105`}
       >
         <Icon className={`h-6 w-6 ${iconColorClass}`} />
       </div>
 
       {/* Content */}
-      <div className="mt-6 flex flex-col flex-1">
+      <div className="mt-6 flex text-center flex-col flex-1">
         <h3 className="text-lg font-semibold text-gray-800 leading-tight">
           {title}
         </h3>
@@ -50,29 +50,32 @@ const HeroCard: React.FC<HeroCardProps> = ({
         </p>
 
         {/* Link (Always stays at bottom) */}
-        <div className={`mt-6 -mx-6 -mb-5.5 border-t ${borderColorClass}`}>
+        <div className={`mt-6 -mx-6 -mb-5.5 text-center`}>
+          <div className={`${borderColorClass} border-t w-full`}>
+          
           <div
-            className={`px-6 py-2 flex items-center justify-between transition ${hoverBgClass}`}
+            className={`px-6 py-2 flex items-center justify-center text-center transition ${hoverBgClass}`}
           >
             {onLinkClick ? (
               <button
                 type="button"
                 onClick={onLinkClick}
-                className={`flex items-center justify-between w-full cursor-pointer font-medium ${iconColorClass}`}
+                className={`flex items-center justify-center w-full cursor-pointer font-medium ${iconColorClass}`}
               >
                 <span>{linkText}</span>
-                <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                {/* <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" /> */}
               </button>
             ) : (
               <a
                 href={linkHref}
-                className={`flex items-center justify-between w-full cursor-pointer font-medium ${iconColorClass}`}
+                className={`flex items-center justify-center w-full cursor-pointer font-medium ${iconColorClass}`}
               >
                 <span>{linkText}</span>
-                <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                {/* <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" /> */}
               </a>
             )}
           </div>
+        </div>
         </div>
       </div>
     </div>
