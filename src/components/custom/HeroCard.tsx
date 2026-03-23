@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
+import { ChatBubbleBottomCenterIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export interface HeroCardProps {
   title: string;
@@ -11,6 +11,7 @@ export interface HeroCardProps {
   borderColorClass?: string;
   onLinkClick?: () => void;
   linkHref?: string;
+  hoverBgClass?: string;
 }
 
 const HeroCard: React.FC<HeroCardProps> = ({
@@ -22,6 +23,7 @@ const HeroCard: React.FC<HeroCardProps> = ({
   iconBgClass = "bg-indigo-50",
   borderColorClass = "border-blue-500",
   onLinkClick,
+  hoverBgClass = "hover:bg-blue-50",
   linkHref = "#",
 }) => {
   return (
@@ -48,29 +50,29 @@ const HeroCard: React.FC<HeroCardProps> = ({
         </p>
 
         {/* Link (Always stays at bottom) */}
-        <div className="mt-4">
-          {onLinkClick ? (
-            <button
-              type="button"
-              onClick={onLinkClick}
-              className={`inline-flex items-center cursor-pointer font-medium ${iconColorClass} transition-all duration-300 group-hover:translate-x-1`}
-            >
-              {linkText}
-              {/* <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span> */}
-            </button>
-          ) : (
-            <a
-              href={linkHref}
-              className={`inline-flex cursor-pointer items-center font-medium ${iconColorClass} transition-all duration-300 group-hover:translate-x-1`}
-            >
-              {linkText}
-              {/* <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span> */}
-            </a>
-          )}
+        <div className={`mt-6 -mx-6 -mb-5.5 border-t ${borderColorClass}`}>
+          <div
+            className={`px-6 py-2 flex items-center justify-between transition ${hoverBgClass}`}
+          >
+            {onLinkClick ? (
+              <button
+                type="button"
+                onClick={onLinkClick}
+                className={`flex items-center justify-between w-full cursor-pointer font-medium ${iconColorClass}`}
+              >
+                <span>{linkText}</span>
+                <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            ) : (
+              <a
+                href={linkHref}
+                className={`flex items-center justify-between w-full cursor-pointer font-medium ${iconColorClass}`}
+              >
+                <span>{linkText}</span>
+                <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

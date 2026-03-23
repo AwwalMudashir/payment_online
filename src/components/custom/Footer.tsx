@@ -1,4 +1,5 @@
 import React from "react";
+import InfoStrip from "./InfoStrip";
 
 const partnerLogos: { src: string; alt: string }[] = [
   { src: "/Mastercard.webp", alt: "Mastercard" },
@@ -14,9 +15,9 @@ const Footer: React.FC = () => {
       {/* Top Section */}
       <div className="max-w-6xl mx-auto">
 
-        <div className="text-center mb-8">
-          {/* <h3 className="text-sm font-semibold text-white tracking-wide">
-            Supported Payment Partners
+        <div className=" mb-8">
+          {/* <h3 className="text-lg text-left mb-4 font-semibold text-white tracking-wide">
+            Contact Us
           </h3> */}
           {/* <p className="mt-1 text-xs text-gray-200">
             Secure transactions powered by trusted financial providers.
@@ -24,6 +25,11 @@ const Footer: React.FC = () => {
           <div className="mt-3 text-xs text-gray-200">
             Contact: 090-456-606-63 • customercare@icmaservices.com
           </div> */}
+          <InfoStrip items={[
+            { label: "Contact", value: "090-456-606-63" },
+            { label: "Email", value: "customercare@icmaservices.com" },
+            { label: "Open Hours", value: "Mon - Fri | 9:00AM - 05:00PM" }
+          ]}></InfoStrip>
         </div>
 
         {/* Logos */}

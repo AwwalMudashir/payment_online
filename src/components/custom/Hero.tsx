@@ -51,6 +51,7 @@ const Hero: React.FC = () => {
           iconBgClass="bg-orange-100"
           iconColorClass="text-orange-600"
           icon={IdentificationIcon}
+          hoverBgClass="hover:bg-orange-50"
           onLinkClick={() => openModal("payerId")}
         />
 
@@ -59,6 +60,7 @@ const Hero: React.FC = () => {
           description="Assessment-Based Payments Only"
           borderColorClass="border-blue-500"
           iconBgClass="bg-blue-100"
+          hoverBgClass="hover:bg-blue-50"
           iconColorClass="text-blue-600"
           icon={DocumentTextIcon}
           onLinkClick={() => openModal("assessment")}
@@ -69,6 +71,7 @@ const Hero: React.FC = () => {
           description="Other Payments"
           borderColorClass="border-green-500"
           iconBgClass="bg-green-100"
+          hoverBgClass="hover:bg-green-50"
           iconColorClass="text-green-600"
           icon={UserIcon}
           onLinkClick={() => openModal("instructions")}
